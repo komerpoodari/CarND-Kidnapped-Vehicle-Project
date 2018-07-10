@@ -1,3 +1,40 @@
+Self-Driving Car Engineer Nanodegree Program
+
+**This file is updated based on the assignment submission.**
+
+[//]: # (Image References)
+[image1]: ./kvp.png
+[image2]: ./graph.png
+
+# Assignment Implementation
+The relevant functions mentioned below are implemented in `particle_filter.cpp`.
+1. `ParticleFilter::init()` 
+    Important were the initialization position parameters with noise and weights initialization.
+2. `ParticleFilter::prediction()`
+    The important aspects were avoiding dividing by zero when 'yaw' rate was close to zero.
+    and adding Gaussian noise for predictions.
+    
+3. `ParticleFilter::dataAssociation()`
+    The shortest distance approach was used to associate predictions with landmarks.
+    
+4. `ParticleFilter::updateWeights()`
+    This functon is a bit involved and prone to simple mathematical errors.
+    Important aspects were selecting nearby landmark predictions, transforming from vehicle 
+    coordinates to map coordinates
+5. `ParticleFilter::resample()`
+   For resampling C++ library fuction is used as suggested.
+   
+# Observations.
+The following figure captures a successful run of the program.
+![alt text][image1]
+
+The following graph describes the error behavior for various number of particles chosen.
+![alt text][image2]
+
+I settled on 60 as number of particles.
+
+The remaining sections apply without any changes.
+ 
 # Overview
 This repository contains all the code needed to complete the final project for the Localization course in Udacity's Self-Driving Car Nanodegree.
 

@@ -46,6 +46,7 @@ int main()
   // Create particle filter
   ParticleFilter pf;
 
+
   h.onMessage([&pf,&map,&delta_t,&sensor_range,&sigma_pos,&sigma_landmark](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode) {
     // "42" at the start of the message means there's a websocket message event.
     // The 4 signifies a websocket message
@@ -102,7 +103,7 @@ int main()
         	std::istream_iterator<float>(),
         	std::back_inserter(y_sense));
 
-        	for(int i = 0; i < x_sense.size(); i++)
+        	for(unsigned int i = 0; i < x_sense.size(); i++)
         	{
         		LandmarkObs obs;
         		obs.x = x_sense[i];
@@ -127,6 +128,7 @@ int main()
 			}
 			weight_sum += particles[i].weight;
 		  }
+          
 		  cout << "highest w " << highest_weight << endl;
 		  cout << "average w " << weight_sum/num_particles << endl;
 

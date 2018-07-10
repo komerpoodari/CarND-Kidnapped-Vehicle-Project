@@ -40,6 +40,8 @@ class ParticleFilter {
 	
 public:
 	
+    // debug variable
+    unsigned int debug_count;
 	// Set of current particles
 	std::vector<Particle> particles;
 
